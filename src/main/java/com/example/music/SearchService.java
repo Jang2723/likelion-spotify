@@ -31,7 +31,8 @@ public class SearchService {
                 .toUriString();
         // Bearer Token 준비
         String tokenHeaderValue
-                = "Bearer " + tokenService.getAccessToken().getAccessToken();
+//                = "Bearer " + tokenService.getAccessToken().getAccessToken();
+                = "Bearer " + tokenService.getToken();
         return spotifyClient.get()
                 .uri(url)
                 .header("Authorization", tokenHeaderValue)
