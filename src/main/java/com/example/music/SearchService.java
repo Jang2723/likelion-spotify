@@ -11,7 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequiredArgsConstructor
 public class SearchService {
     private final RestClient spotifyClient;
-    private final SpotifyTokenService tokenService;
+//    private final SpotifyTokenService tokenService;
 
     public Object search(
             String q,
@@ -30,12 +30,12 @@ public class SearchService {
                 .build(false)
                 .toUriString();
         // Bearer Token 준비
-        String tokenHeaderValue
+//        String tokenHeaderValue
 //                = "Bearer " + tokenService.getAccessToken().getAccessToken();
-                = "Bearer " + tokenService.getToken();
+//                = "Bearer " + tokenService.getToken();
         return spotifyClient.get()
                 .uri(url)
-                .header("Authorization", tokenHeaderValue)
+//                .header("Authorization", tokenHeaderValue)
                 .retrieve()
                 .body(Object.class);
     }

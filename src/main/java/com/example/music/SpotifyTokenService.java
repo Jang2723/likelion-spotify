@@ -27,9 +27,8 @@ public class SpotifyTokenService {
     // 마지막으로 Token을 발급한 시점
     private LocalDateTime lastIssued;
 
-    // 현재 사용중인 Bearer Token
+    // 현재 사용 중인 Bearer Token
     private String token;
-
     private final RestClient authRestClient;
 
     public SpotifyTokenService(
