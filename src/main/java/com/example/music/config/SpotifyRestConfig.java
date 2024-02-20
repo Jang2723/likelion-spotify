@@ -1,16 +1,15 @@
 package com.example.music.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-public class AuthRestClientConfig {
+public class SpotifyRestConfig {
     @Bean
-    public RestClient authRestClient() {
+    public RestClient spotifyClient() {
         return RestClient.builder()
-                .baseUrl("https://accounts.spotify.com/api/token")
+                .baseUrl("https://api.spotify.com/v1")
                 .build();
     }
 }
