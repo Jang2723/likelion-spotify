@@ -1,6 +1,10 @@
 package com.example.music.service;
 
 
+import com.example.music.dto.AlbumItemDto;
+import com.example.music.dto.ArtistItemDto;
+import com.example.music.dto.SearchResultDto;
+import com.example.music.dto.TrackItemDto;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
@@ -10,11 +14,11 @@ import java.util.Map;
 // Spotify에서 사용할 API들을 정리한다.
 public interface SpotifyHttpInterface {
     @GetExchange("/search")
-    Object search(@RequestParam Map<String, ?> params);
+    SearchResultDto search(@RequestParam Map<String, ?> params);
     @GetExchange("/albums/{id}")
-    Object getAlbum(@PathVariable("id") String id);
+    AlbumItemDto getAlbum(@PathVariable("id") String id);
     @GetExchange("/artists/{id}")
-    Object getArtist(@PathVariable("id") String id);
+    ArtistItemDto getArtist(@PathVariable("id") String id);
     @GetExchange("/tracks/{id}")
-    Object getTrack(@PathVariable("id") String id);
+    TrackItemDto getTrack(@PathVariable("id") String id);
 }

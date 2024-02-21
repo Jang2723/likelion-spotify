@@ -1,5 +1,6 @@
-package com.example.music;
+package com.example.music.service;
 
+import com.example.music.dto.SearchResultDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -9,11 +10,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class SearchService {
+public class SearchRestService implements SearchService{
     private final RestClient spotifyClient;
 //    private final SpotifyTokenService tokenService;
 
-    public Object search(
+    @Override
+    public SearchResultDto search(
             String q,
             String type,
             String market,
@@ -29,14 +31,9 @@ public class SearchService {
                 .queryParam("offset", offset)
                 .build(false)
                 .toUriString();
-        // Bearer Token 준비
-//        String tokenHeaderValue
-//                = "Bearer " + tokenService.getAccessToken().getAccessToken();
-//                = "Bearer " + tokenService.getToken();
         return spotifyClient.get()
                 .uri(url)
-//                .header("Authorization", tokenHeaderValue)
                 .retrieve()
-                .body(Object.class);
+                .body(SearchResultDto.class);
     }
 }

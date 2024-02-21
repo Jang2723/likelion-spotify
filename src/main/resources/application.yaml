@@ -9,5 +9,5 @@ spring:
     database-platform: org.hibernate.community.dialect.SQLiteDialect
 
 spotify:
-  client-id: 2ca1f5bf269a4fba86226f5924d699a8
-  client-secret: 8776f4c3501f41038c3e56b4c0baca6b
+  client-id: <client-id>
+  client-secret: <client-secret>
